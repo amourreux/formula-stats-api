@@ -1,22 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { Pool } from 'pg';
+import { DatabaseService } from '../database/database.service';
 
 @Injectable()
 export class DriversService {
-  private readonly pool: Pool;
-
-  constructor() {
-    this.pool = new Pool({
-      user: process.env.POSTGRES_USER,
-      host: process.env.POSTGRES_HOST,
-      database: process.env.POSTGRES_DB,
-      password: process.env.POSTGRES_PASSWORD,
-      port: parseInt(process.env.DB_PORT, 5432),
-    });
-  }
+  constructor(private readonly dbService: DatabaseService) {}
 
   async findAll(): Promise<any[]> {
-    const client = await this.pool.connect();
+    const client = await this.dbService.pool.connect();
     try {
       const result = await client.query('SELECT * FROM drivers');
       return result.rows;
@@ -26,7 +16,7 @@ export class DriversService {
   }
 
   async findById(id: number): Promise<any> {
-    const client = await this.pool.connect();
+    const client = await this.dbService.pool.connect();
     try {
       const result = await client.query('SELECT * FROM drivers WHERE id = $1', [
         id,
