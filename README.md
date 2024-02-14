@@ -7,6 +7,9 @@
 
 ## Installation
 
+- create .env file using .env.sample file.
+- change .env file value from sample values. 
+
 ```bash
 $ npm ci
 
