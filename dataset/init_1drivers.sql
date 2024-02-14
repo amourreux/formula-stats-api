@@ -17,3 +17,5 @@ DELIMITER ','
 null '\N'
 
 CSV HEADER;
+
+CREATE INDEX idx_driverId ON drivers(id);
