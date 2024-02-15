@@ -21,15 +21,15 @@ export class DriversController {
   @ApiQuery({ name: 'page', required: false, type: Number })
   @ApiQuery({ name: 'limit', required: false, type: Number })
   @ApiQuery({
-    name: 'sortBy',
-    enum: SortByDriverEnum,
-    enumName: 'SortBy',
-    required: false,
-  })
-  @ApiQuery({
     name: 'sortOrder',
     enum: SortOrder,
     enumName: 'SortOrder',
+    required: false,
+  })
+  @ApiQuery({
+    name: 'sortBy',
+    enum: SortByDriverEnum,
+    enumName: 'SortByDriverEnum',
     required: false,
   })
   @ApiOkResponse({ type: [DriverDto] })
