@@ -14,4 +14,14 @@ export class DatabaseService {
       port: parseInt(process.env.DB_PORT, 5432),
     });
   }
+
+  async query(sql: string, params: any[] = []): Promise<any> {
+    const client = await this.pool.connect();
+    try {
+      const result = await client.query(sql, params);
+      return result.rows;
+    } finally {
+      client.release();
+    }
+  }
 }
