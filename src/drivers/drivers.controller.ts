@@ -12,7 +12,7 @@ import { FindAllDriversDto } from './dto/find-all-driver.dto';
 import { DriverDto } from './dto/driver.dto';
 import { SortByDriverEnum } from './enums/sort-by-driver.enum';
 
-@ApiTags('f1')
+@ApiTags('Drivers')
 @Controller('drivers')
 export class DriversController {
   constructor(private readonly driversService: DriversService) {}
