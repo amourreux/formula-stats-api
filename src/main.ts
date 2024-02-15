@@ -16,8 +16,8 @@ async function bootstrap() {
   );
 
   const config = new DocumentBuilder()
-    .setTitle('Formula Case Study')
-    .setDescription('Formula Case Study API for reviewing formula 1 stats.')
+    .setTitle('Formula One Stats')
+    .setDescription('Formula One API for reviewing formula 1 stats.')
     .setVersion('1.0')
     .addTag('f1')
     .build();
